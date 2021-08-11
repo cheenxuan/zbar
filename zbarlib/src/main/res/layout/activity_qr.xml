@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- 二维码识别界面 -->
+    <cn.bertsir.zbar.CameraPreview
+        android:id="@+id/cp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true" />
+
+
+    <cn.bertsir.zbar.view.ScanView
+        android:id="@+id/sv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!-- 扫描框上面的布局 -->
+    <RelativeLayout
+        android:id="@+id/fl_title"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:layout_alignParentTop="true"
+        android:background="@color/scan_bg">
+
+        <View
+            android:id="@+id/title"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"/>
+
+        <RelativeLayout
+            android:id="@+id/title_bar"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_below="@+id/title"
+            android:background="@android:color/transparent">
+
+            <ImageView
+                android:id="@+id/mo_scanner_back"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:background="@null"
+                android:paddingLeft="15dp"
+                android:paddingRight="20dp"
+                android:src="@drawable/icon_left_back_white" />
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:ellipsize="middle"
+                android:singleLine="true"
+                android:text="终端条码"
+                android:textColor="#FFFFFF"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/qrcode_g_gallery"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:gravity="center_vertical"
+                android:paddingLeft="10dp"
+                android:paddingRight="15dp"
+                android:text="相册"
+                android:textColor="#333333"
+                android:textSize="15sp"
+                android:visibility="invisible" />
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+
+    <TextView
+        android:id="@+id/tv_des"
+        android:layout_width="wrap_content"
+        android:layout_height="28dp"
+        android:layout_above="@+id/iv_flash"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/shape_transparent_radius"
+        android:gravity="center"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:text="@string/scan_qrcode_hint"
+        android:textColor="#FFFFFF"
+        android:textSize="12sp" />
+
+    <ImageView
+        android:id="@+id/iv_flash"
+        android:layout_width="30dp"
+        android:layout_height="56dp"
+        android:layout_above="@+id/tv_flash_light"
+        android:layout_centerHorizontal="true"
+        android:padding="5dp"
+        android:src="@drawable/icon_scan_flash_light_off" />
+
+    <TextView
+        android:id="@+id/tv_flash_light"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="40dp"
+        android:text="轻点照亮"
+        android:textColor="#FFFFFF"
+        android:textSize="12sp" />
+
+
+</RelativeLayout>
