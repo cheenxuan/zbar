@@ -30,6 +30,7 @@ public class QRUtils {
 
     private static QRUtils instance;
     private Bitmap scanBitmap;
+    private ErrorCorrectionLevel errorCorrectionLevel = ErrorCorrectionLevel.L
 
 
     public static QRUtils getInstance() {
@@ -90,7 +91,7 @@ public class QRUtils {
         MultiFormatWriter multiFormatWriter = new MultiFormatWriter();
         try {
             Hashtable<EncodeHintType, Object> hints = new Hashtable<EncodeHintType, Object>();
-            hints.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.H);//这里调整二维码的容错率
+            hints.put(EncodeHintType.ERROR_CORRECTION, errorCorrectionLevel);//这里调整二维码的容错率
             hints.put(EncodeHintType.MARGIN, 1);   //设置白边取值1-4，值越大白边越大
             result = multiFormatWriter.encode(new String(content.getBytes("UTF-8"), "ISO-8859-1"), BarcodeFormat
                     .QR_CODE, width, height, hints);
@@ -260,5 +261,19 @@ public class QRUtils {
         return false;
     }
 
-
+    public void setErrorCorrectionLevel(String level){
+        switch(level){
+            case "M":
+                this.errorCorrectionLevel = ErrorCorrectionLevel.M;
+            break;
+            case "Q":
+                this.errorCorrectionLevel = ErrorCorrectionLevel.Q;
+            break;
+            case "H":
+                this.errorCorrectionLevel = ErrorCorrectionLevel.H;
+            break;
+            default:
+                this.errorCorrectionLevel = ErrorCorrectionLevel.L;
+        }
+    }
 }
