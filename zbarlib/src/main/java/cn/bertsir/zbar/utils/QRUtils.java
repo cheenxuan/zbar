@@ -30,7 +30,7 @@ public class QRUtils {
 
     private static QRUtils instance;
     private Bitmap scanBitmap;
-    private ErrorCorrectionLevel errorCorrectionLevel = ErrorCorrectionLevel.L
+    private ErrorCorrectionLevel errorCorrectionLevel = ErrorCorrectionLevel.L;
 
 
     public static QRUtils getInstance() {
